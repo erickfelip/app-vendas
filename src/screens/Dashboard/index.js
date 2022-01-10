@@ -1,5 +1,6 @@
 import React from "react";
-import { Text, View } from "react-native";
+import { AntDesign  } from '@expo/vector-icons'
+
 import {
   Container,
   Header,
@@ -10,6 +11,7 @@ import {
   User,
   UserGreeting,
   UserName,
+  Icon
 } from "./style";
 
 export function Dashboard() {
@@ -28,6 +30,7 @@ export function Dashboard() {
               <UserName>Erick</UserName>
             </User>
           </UserInfo>
+        <Icon name='logout'/>
         </UserWrapper>
       </Header>
       <MapContainer></MapContainer>

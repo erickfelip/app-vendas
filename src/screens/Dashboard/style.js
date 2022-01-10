@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Platform } from "react-native";
+import { AntDesign  } from '@expo/vector-icons'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
 export const Container = styled.View`
@@ -10,22 +11,25 @@ export const Header = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  padding-top: ${Platform.OS === "android" ? 60 : 80}px;
+  padding-top: ${Platform.OS === "android" ? 40 : 80}px;
   background-color: ${({ theme }) => theme.colors.primary};
   width: 100%;
   height: ${RFPercentage(20)}px;
 `;
 
 export const MapContainer = styled.View`
-  padding-top: ${Platform.OS === "android" ? 80 : 80}px;
+  padding-top: ${Platform.OS === "android" ? 60 : 80}px;
   background-color: ${({ theme }) => theme.colors.header};
-  width: 100%;
-  height: ${RFPercentage(60)}px;
+  width: ${RFPercentage(53)}px;
+  height: ${RFPercentage(50)}px;
 `;
 export const UserWrapper = styled.View`
   height: ${RFValue(80)}px;
   width: 100%;
-  padding: 0 22px;
+  padding: 0 15px;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
 `;
 
 export const UserInfo = styled.View`
@@ -54,3 +58,8 @@ export const UserName = styled.Text`
   font-size: ${RFValue(18)}px;
   font-family: ${({ theme }) => theme.fonts.bold};
 `;
+
+export const Icon = styled(AntDesign)`
+color: ${({theme}) => theme.colors.secondary};
+font-size: ${RFValue(24)}px;
+` 
