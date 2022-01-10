@@ -11,7 +11,9 @@ import {
   User,
   UserGreeting,
   UserName,
-  Icon
+  Icon,
+  Transactions,
+  Title
 } from "./style";
 
 export function Dashboard() {
@@ -33,7 +35,12 @@ export function Dashboard() {
         <Icon name='logout'/>
         </UserWrapper>
       </Header>
-      <MapContainer></MapContainer>
+      <MapContainer>
+      </MapContainer>
+      <Transactions>
+          <Title> Campanha
+          </Title>
+      </Transactions>
     </Container>
   );
 }

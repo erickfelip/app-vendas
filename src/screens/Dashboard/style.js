@@ -11,7 +11,7 @@ export const Header = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: row;
-  padding-top: ${Platform.OS === "android" ? 40 : 80}px;
+  padding-top: ${Platform.OS === "android" ? 25 : 80}px;
   background-color: ${({ theme }) => theme.colors.primary};
   width: 100%;
   height: ${RFPercentage(20)}px;
@@ -20,7 +20,7 @@ export const Header = styled.View`
 export const MapContainer = styled.View`
   padding-top: ${Platform.OS === "android" ? 60 : 80}px;
   background-color: ${({ theme }) => theme.colors.header};
-  width: ${RFPercentage(53)}px;
+  width: ${RFPercentage(60)}px;
   height: ${RFPercentage(50)}px;
 `;
 export const UserWrapper = styled.View`
@@ -63,3 +63,14 @@ export const Icon = styled(AntDesign)`
 color: ${({theme}) => theme.colors.secondary};
 font-size: ${RFValue(24)}px;
 ` 
+
+export const Transactions = styled.View`
+flex: 1;
+padding: 0 15px;
+margin-top: ${RFValue(15)}px;
+`
+
+export const Title = styled.Text`
+font-size: ${RFValue(18)}px;
+font-family: ${({ theme }) => theme.fonts.bold};
+  ` 
