@@ -1,14 +1,22 @@
 import React from 'react'
-import { View, Text } from 'react-native'
-import { Container, Title } from './style'
+import { Text, View } from 'react-native'
+import { Container, Header, MapContainer } from './style'
 
 export function Dashboard(){
     return(
         <Container>
-            <Title>
-                Teste
-            </Title>
-        </Container>
+            <Header>
+              <UserInfo>
+                  <Photo/>
+                  <User>
+                      <UserGreeting>Olá, </UserGreeting>
+                  </User>
 
+
+              </UserInfo>
+            </Header>
+            <MapContainer>
+            </MapContainer>
+        </Container>
     )
 }
