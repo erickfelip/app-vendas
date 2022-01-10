@@ -1,5 +1,5 @@
 import React from "react";
-import { AntDesign  } from '@expo/vector-icons'
+import { CampaignCard } from "../../components/CampaignCard";
 
 import {
   Container,
@@ -38,8 +38,8 @@ export function Dashboard() {
       <MapContainer>
       </MapContainer>
       <Transactions>
-          <Title> Campanha
-          </Title>
+          <Title> Campanha</Title>
+          <CampaignCard/>
       </Transactions>
     </Container>
   );
