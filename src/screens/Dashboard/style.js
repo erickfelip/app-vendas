@@ -18,7 +18,6 @@ export const Header = styled.View`
 `;
 
 export const MapContainer = styled.View`
-  background-color: ${({ theme }) => theme.colors.header};
   width: ${RFPercentage(60)}px;
   height: ${RFPercentage(50)}px;
 `;

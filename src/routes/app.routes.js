@@ -5,6 +5,8 @@ import { MaterialIcons, MaterialCommunityIcons  } from '@expo/vector-icons'
 const { Navigator, Screen } = createBottomTabNavigator();
 
 import { Dashboard } from '../screens/Dashboard';
+import { Balance } from '../screens/Balance';
+import { Sales } from '../screens/Sales'
 import { useTheme } from 'styled-components';
 
 export function AppRoutes(){
@@ -36,7 +38,7 @@ export function AppRoutes(){
             />
             <Screen 
             name='Saldo'
-            component={Dashboard}
+            component={Balance}
             options={{
                 tabBarIcon: (({ size, color}) => 
                 <MaterialIcons 
@@ -48,7 +50,7 @@ export function AppRoutes(){
             }}/>
             <Screen 
             name='Vendas'
-            component={Dashboard}
+            component={Sales}
             options={{
                 tabBarIcon: (({ size, color}) => 
                 <MaterialCommunityIcons 
