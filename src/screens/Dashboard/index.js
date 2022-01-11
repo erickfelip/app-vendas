@@ -24,21 +24,18 @@ export function Dashboard() {
 
   useEffect(() => {
     (async () => {
-      let  status  = await Location.requestForegroundPermissionsAsync();
+      let  { status }  = await Location.requestForegroundPermissionsAsync();
       if (status !== 'granted') {
         setErrorMsg('Permission to access location was denied');
         return;
       }
-
       let location = await Location.getCurrentPositionAsync({});
       console.log(location)
       setLocation({
-        value:{
           latitude: location.coords.latitude,
           longitude: location.coords.longitude,
-          latitudeDelta: -5.767,
-          longitudeDelta: -35.200,
-        }
+          latitudeDelta: 0.00922,
+          longitudeDelta: 0.00421,
       });
     })();
   }, []);
