@@ -3,16 +3,12 @@ import { Platform } from "react-native";
 import { AntDesign  } from '@expo/vector-icons'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
-export const Container = styled.View`
-  flex: 1;
-  background-color: ${({ theme }) => theme.colors.secondary};
-`;
 export const Header = styled.View`
   align-items: center;
   justify-content: center;
   flex-direction: row;
   padding-top: ${Platform.OS === "android" ? 25 : 80}px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.teste};
   width: 100%;
   height: ${RFPercentage(20)}px;
 `;
@@ -65,7 +61,8 @@ font-size: ${RFValue(24)}px;
 export const Transactions = styled.View`
 flex: 1;
 padding: 0 15px;
-margin-top: ${RFValue(15)}px;
+margin-top: ${RFValue(1)}px;
+background-color: yellow;
 `
 
 export const Title = styled.Text`

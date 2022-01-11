@@ -30,18 +30,18 @@ export function Dashboard() {
         return;
       }
       let location = await Location.getCurrentPositionAsync({});
-      console.log(location)
       setLocation({
-          latitude: location.coords.latitude,
-          longitude: location.coords.longitude,
-          latitudeDelta: 0.00922,
-          longitudeDelta: 0.00421,
+        latitude: location.coords.latitude,
+        longitude: location.coords.longitude,
+        latitudeDelta: 0.00922,
+        longitudeDelta: 0.00421,
       });
     })();
-  }, []);
+    console.log(location)
+  },[]);
 
   return (
-    <Container>
+    <>
       <Header>
         <UserWrapper>
           <UserInfo>
@@ -65,10 +65,7 @@ export function Dashboard() {
         loadingEnable={true}
         />
       </MapContainer>
-      <Transactions>
-          <Title> Campanha</Title>
-          <CampaignCard/>
-      </Transactions>
-    </Container>
+      <CampaignCard/>
+    </>
   );
 }
