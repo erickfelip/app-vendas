@@ -1,6 +1,5 @@
-import React from "react";
+import React,{useState, useEffect} from "react";
 import { CampaignCard } from "../../components/CampaignCard";
-
 import {
   Container,
   Header,
@@ -15,8 +14,35 @@ import {
   Transactions,
   Title
 } from "./style";
+import MapView from 'react-native-maps'
+import * as Location from 'expo-location';
+
 
 export function Dashboard() {
+  const [location, setLocation] = useState(null);
+  const [errorMsg, setErrorMsg] = useState(null);
+
+  useEffect(() => {
+    (async () => {
+      let  status  = await Location.requestForegroundPermissionsAsync();
+      if (status !== 'granted') {
+        setErrorMsg('Permission to access location was denied');
+        return;
+      }
+
+      let location = await Location.getCurrentPositionAsync({});
+      console.log(location)
+      setLocation({
+        value:{
+          latitude: location.coords.latitude,
+          longitude: location.coords.longitude,
+          latitudeDelta: -5.767,
+          longitudeDelta: -35.200,
+        }
+      });
+    })();
+  }, []);
+
   return (
     <Container>
       <Header>
@@ -36,6 +62,11 @@ export function Dashboard() {
         </UserWrapper>
       </Header>
       <MapContainer>
+        <MapView style={{flex:1}}
+        initialRegion={location}
+        showsUserLocation={true}
+        loadingEnable={true}
+        />
       </MapContainer>
       <Transactions>
           <Title> Campanha</Title>

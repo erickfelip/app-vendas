@@ -18,7 +18,6 @@ export const Header = styled.View`
 `;
 
 export const MapContainer = styled.View`
-  padding-top: ${Platform.OS === "android" ? 60 : 80}px;
   background-color: ${({ theme }) => theme.colors.header};
   width: ${RFPercentage(60)}px;
   height: ${RFPercentage(50)}px;
