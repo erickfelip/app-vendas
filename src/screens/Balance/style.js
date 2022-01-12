@@ -6,7 +6,7 @@ export const Container = styled.View`
   justify-content: center;
   flex-direction: row;
   padding-top: ${Platform.OS === "android" ? 25 : 80}px;
-  background-color: ${({ theme }) => theme.colors.primary};
+  background-color: ${({ theme }) => theme.colors.teste};
   width: 100%;
   height: ${RFPercentage(20)}px;
 `;

@@ -3,6 +3,11 @@ import { Platform } from "react-native";
 import { AntDesign  } from '@expo/vector-icons'
 import { RFPercentage, RFValue } from "react-native-responsive-fontsize";
 
+export const Container = styled.View`
+  flex: 1;
+  background-color: ${({ theme }) => theme.colors.secondary};
+`;
+
 export const Header = styled.View`
   align-items: center;
   justify-content: center;

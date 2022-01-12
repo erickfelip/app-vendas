@@ -18,6 +18,7 @@ font-family: ${({ theme }) => theme.fonts.bold};
 export const InnerContainer = styled.View`
 border-radius: 15px;
 flex: 1;
-margin-top: ${RFValue(7)}px;
+margin-bottom: ${RFValue(15)}px;
+margin-top: ${RFValue(10)}px;
 background-color: ${({ theme }) => theme.colors.teste2};
 `

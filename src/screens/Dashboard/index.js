@@ -1,4 +1,4 @@
-import React,{useState, useEffect} from "react";
+import React,{useState, useEffect, useRef } from "react";
 import { CampaignCard } from "../../components/CampaignCard";
 import {
   Container,
@@ -16,11 +16,21 @@ import {
 } from "./style";
 import MapView from 'react-native-maps'
 import * as Location from 'expo-location';
+import { Modalize } from 'react-native-modalize';
+import { TouchableOpacity, Text} from 'react-native'
+
 
 
 export function Dashboard() {
   const [location, setLocation] = useState(null);
   const [errorMsg, setErrorMsg] = useState(null);
+
+  const modalizeRef = useRef(null);
+
+  function onOpen(){
+    modalizeRef.current?.open()
+  }
+
 
   useEffect(() => {
     (async () => {
@@ -37,11 +47,11 @@ export function Dashboard() {
         longitudeDelta: 0.00421,
       });
     })();
-    console.log(location)
   },[]);
+  console.log(location)
 
   return (
-    <>
+    <Container>
       <Header>
         <UserWrapper>
           <UserInfo>
@@ -66,6 +76,18 @@ export function Dashboard() {
         />
       </MapContainer>
       <CampaignCard/>
-    </>
+  
+      <TouchableOpacity
+      onPress={onOpen}>
+        <Text>
+          TESTE
+        </Text>
+      </TouchableOpacity>
+      <Modalize
+      ref={modalizeRef}
+      snapPoint={500}
+      >
+      </Modalize>
+    </Container>
   );
 }
