@@ -1,4 +1,4 @@
-import React,{useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { CampaignCard } from "../../components/CampaignCard";
 import {
   Container,
@@ -12,14 +12,13 @@ import {
   UserName,
   Icon,
   Transactions,
-  Title
+  Title,
 } from "./style";
-import MapView from 'react-native-maps'
-import * as Location from 'expo-location';
-import { Modalize } from 'react-native-modalize';
-import { TouchableOpacity, Text} from 'react-native'
-
-
+import MapView from "react-native-maps";
+import * as Location from "expo-location";
+import { Modalize } from "react-native-modalize";
+import { TouchableOpacity, Text, Alert } from "react-native";
+import { AntDesign } from '@expo/vector-icons';
 
 export function Dashboard() {
   const [location, setLocation] = useState(null);
@@ -27,16 +26,15 @@ export function Dashboard() {
 
   const modalizeRef = useRef(null);
 
-  function onOpen(){
-    modalizeRef.current?.open()
+  function onOpen() {
+    modalizeRef.current?.open();
   }
-
 
   useEffect(() => {
     (async () => {
-      let  { status }  = await Location.requestForegroundPermissionsAsync();
-      if (status !== 'granted') {
-        setErrorMsg('Permission to access location was denied');
+      let { status } = await Location.requestForegroundPermissionsAsync();
+      if (status !== "granted") {
+        setErrorMsg("Permission to access location was denied");
         return;
       }
       let location = await Location.getCurrentPositionAsync({});
@@ -47,8 +45,7 @@ export function Dashboard() {
         longitudeDelta: 0.00421,
       });
     })();
-  },[]);
-  console.log(location)
+  }, []);
 
   return (
     <Container>
@@ -65,29 +62,23 @@ export function Dashboard() {
               <UserName>Erick</UserName>
             </User>
           </UserInfo>
-        <Icon name='logout'/>
+          <Icon name="logout" />
         </UserWrapper>
       </Header>
       <MapContainer>
-        <MapView style={{flex:1}}
-        initialRegion={location}
-        showsUserLocation={true}
-        loadingEnable={true}
+        <MapView
+          style={{ flex: 1 }}
+          initialRegion={location}
+          showsUserLocation={true}
+          loadingEnable={true}
         />
       </MapContainer>
-      <CampaignCard/>
-  
-      <TouchableOpacity
-      onPress={onOpen}>
-        <Text>
-          TESTE
-        </Text>
+      <CampaignCard />
+
+      <TouchableOpacity onPress={onOpen}>
+        <AntDesign name="plus" size={24} color="#087CCF" />
       </TouchableOpacity>
-      <Modalize
-      ref={modalizeRef}
-      snapPoint={500}
-      >
-      </Modalize>
+        <Modalize ref={modalizeRef} snapPoint={500}></Modalize>
     </Container>
   );
 }
