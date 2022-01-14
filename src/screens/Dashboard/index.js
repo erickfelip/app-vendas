@@ -75,10 +75,10 @@ export function Dashboard() {
       </MapContainer>
       <CampaignCard />
 
-      <TouchableOpacity onPress={onOpen}>
+     {/*  <TouchableOpacity onPress={onOpen}>
         <AntDesign name="plus" size={24} color="#087CCF" />
       </TouchableOpacity>
-        <Modalize ref={modalizeRef} snapPoint={500}></Modalize>
+        <Modalize ref={modalizeRef} snapPoint={500}></Modalize> */}
     </Container>
   );
 }
